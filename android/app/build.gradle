@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.app_rn_geolocation_background"
+    namespace "com.app_rn_service_location"
     defaultConfig {
-        applicationId "com.app_rn_geolocation_background"
+        applicationId "com.app_rn_service_location"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

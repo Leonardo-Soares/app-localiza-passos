@@ -1,4 +1,4 @@
-package com.app_rn_geolocation_background
+package com.app_rn_service_location
 
 import android.app.Application
 import com.facebook.react.PackageList

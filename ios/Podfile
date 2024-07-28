@@ -14,7 +14,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'app_rn_geolocation_background' do
+target 'app_rn_service_location' do
   config = use_native_modules!
 
   use_react_native!(
@@ -23,7 +23,7 @@ target 'app_rn_geolocation_background' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'app_rn_geolocation_backgroundTests' do
+  target 'app_rn_service_locationTests' do
     inherit! :complete
     # Pods for testing
   end

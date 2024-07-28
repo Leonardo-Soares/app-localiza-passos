@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>app_rn_geolocation_background</string>
+	<string>app_rn_service_location</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -33,11 +33,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Iremos utilizar sua localização</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-		<string>Iremos utilizar sua localização</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-		<string>Iremos utilizar sua localização</string>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

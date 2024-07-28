@@ -1,4 +1,4 @@
-package com.app_rn_geolocation_background
+package com.app_rn_service_location
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -11,7 +11,7 @@ class MainActivity : ReactActivity() {
    * Returns the name of the main component registered from JavaScript. This is used to schedule
    * rendering of the component.
    */
-  override fun getMainComponentName(): String = "app_rn_geolocation_background"
+  override fun getMainComponentName(): String = "app_rn_service_location"
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]

@@ -1,5 +1,5 @@
 {
-  "name": "app_rn_geolocation_background",
+  "name": "app_rn_service_location",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@boterop/react-native-background-timer": "^2.5.1",
-    "@react-native-community/geolocation": "^3.3.0",
     "react": "18.2.0",
     "react-native": "0.74.3"
   },

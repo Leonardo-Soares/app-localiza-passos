@@ -1,99 +1,117 @@
-/* eslint-disable prettier/prettier */
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import React from 'react';
+import type {PropsWithChildren} from 'react';
 import {
-  Text,
-  View,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
   StyleSheet,
-  Alert,
+  Text,
+  useColorScheme,
+  View,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import Geolocation from '@react-native-community/geolocation';
-import BackgroundTimer from '@boterop/react-native-background-timer';
 
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  LearnMoreLinks,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
 
-interface posicaoAtual {
-  position: {
-    mocked: boolean
-    extras: number
-    maxCn0: number
-    meanCn0: number
-    timestamp: number
-    satellites: number
-    coords: {
-      speed: number
-      heading: number
-      accuracy: number
-      altitude: number
-      latitude: number
-      longitude: number
-    },
-  }
-}
+type SectionProps = PropsWithChildren<{
+  title: string;
+}>;
 
-function App(): React.JSX.Element {
-  const [posicaoAtual, setPosicaoAtual] = useState<posicaoAtual>();
-
-  const getLocation = () => {
-    // Geolocation.getCurrentPosition(
-    //   (position) => {
-    //     console.log(`${new Date()}${' - Atual position'}`, position);
-    //   },
-    //   (error) => {
-    //     console.error(error);
-    //   },
-    //   {
-    //     timeout: 5000, // A cada milisegundos tenta pegar a localização
-    //     maximumAge: 3000, // Tempo máximo que a localização é armazenada em cache
-    //     enableHighAccuracy: true, // Usa o GPS para pegar a localização em caso de false usa o WIFI
-    //   },
-    // );
-
-    try {
-      const meuLocal = Geolocation.watchPosition(
-        position => {
-          console.log(`${new Date()}${' - Atual position'}`, position);
-          setPosicaoAtual(position as any);
-        },
-        error => {
-          console.error(error);
-          Alert.alert('Erro', 'Não foi possível obter a localização');
-        },
-        {
-          timeout: 5000, // A cada milisegundos tenta pegar a localização
-          maximumAge: 3000, // Tempo máximo que a localização é armazenada em cache
-          enableHighAccuracy: true, // Usa o GPS para pegar a localização em caso de false usa o WIFI
-        },
-      );
-      console.log('meuLocal', meuLocal);
-
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const requestAuthorization = () => {
-    // Solicita permissão para acessar a localização
-    Geolocation.requestAuthorization();
-  };
-
-  useEffect(() => {
-    requestAuthorization();
-    getLocation();
-  }, []);
-
-
+function Section({children, title}: SectionProps): React.JSX.Element {
+  const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <View style={styles.sectionContainer}>
+      <Text
+        style={[
+          styles.sectionTitle,
+          {
+            color: isDarkMode ? Colors.white : Colors.black,
+          },
+        ]}>
+        {title}
+      </Text>
+      <Text
+        style={[
+          styles.sectionDescription,
+          {
+            color: isDarkMode ? Colors.light : Colors.dark,
+          },
+        ]}>
+        {children}
+      </Text>
     </View>
   );
 }
 
+function App(): React.JSX.Element {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <Header />
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            screen and then come back to see your edits.
+          </Section>
+          <Section title="See Your Changes">
+            <ReloadInstructions />
+          </Section>
+          <Section title="Debug">
+            <DebugInstructions />
+          </Section>
+          <Section title="Learn More">
+            Read the docs to discover what to do next:
+          </Section>
+          <LearnMoreLinks />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    justifyContent: 'center',
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
   },
 });
 
