@@ -1,4 +1,4 @@
-package com.applocalizapassos
+package com.app_rn_geolocation_background
 
 import android.app.Application
 import com.facebook.react.PackageList

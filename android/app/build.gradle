@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.applocalizapassos"
+    namespace "com.app_rn_geolocation_background"
     defaultConfig {
-        applicationId "com.applocalizapassos"
+        applicationId "com.app_rn_geolocation_background"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
